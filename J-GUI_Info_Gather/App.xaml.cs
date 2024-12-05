@@ -242,7 +242,7 @@ namespace J_GUI_Info_Gather
             {
                 regex = TS.GetTSVar("JGUI-regex");
                 Log.Information("Regex from TS: {Regex}", regex ?? "Not set");
-                if (regex != null)
+                if (regex != null && regex != "")
                 {
                     regexActive = true;
                 }
@@ -252,14 +252,10 @@ namespace J_GUI_Info_Gather
                     if (timeout == 0)
                     {
                         timeoutActive = false;
-                        MessageBox.Show($"{timeout}, {timeoutActive}", "Submission Successful", MessageBoxButton.OK);
-
                     }
                     else
                     {
                         timeoutActive = true;
-                        MessageBox.Show($"{timeout}, {timeoutActive}", "Submission Successful", MessageBoxButton.OK);
-
                     }
                 }
                 catch

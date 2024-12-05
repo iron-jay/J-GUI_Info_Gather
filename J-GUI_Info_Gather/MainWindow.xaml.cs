@@ -33,7 +33,7 @@ namespace J_GUI_Info_Gather
                     else
                     {
                         timerDisplay.Text = "Asset # Invalid.\nTimer Suspended.";
-                        timerDisplay.Margin = new Thickness(91, 230, 0, 0);
+                        timerDisplay.Margin = new Thickness(105, 230, 0, 0);
                     }
                 }
                 else
