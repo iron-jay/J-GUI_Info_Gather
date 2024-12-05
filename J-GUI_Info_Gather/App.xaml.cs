@@ -341,7 +341,7 @@ namespace J_GUI_Info_Gather
             if (isVM)
             {
                 hostname = TS.GetTSVar("_SMSTSMachineName");
-                if (hostname == null)
+                if (hostname == null && hostname != "")
                 {
                     hostname = WMIProperty("Win32_ComputerSystem", "Name").ToString();
                     Log.Information("VM Hostname retrieved: {Hostname}", hostname);
