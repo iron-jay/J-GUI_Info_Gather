@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J-GUI_Info_Gather", "J-GUI_
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{236B5A2B-65F3-4BB1-A6EA-5951F64E26A0}"
 	ProjectSection(SolutionItems) = preProject
+		images\gui_all_locked.png = images\gui_all_locked.png
+		images\gui_unlocked.png = images\gui_unlocked.png
 		README.md = README.md
+		images\submission_successful.png = images\submission_successful.png
+		images\test_empty.png = images\test_empty.png
+		images\test_filled.png = images\test_filled.png
 	EndProjectSection
 EndProject
 Global

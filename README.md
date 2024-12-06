@@ -6,7 +6,7 @@ Not happy with either TSGui or UI++, I made my own one.
 
 Introduing: J-GUI: Info Gather
 
-![MOE J-GUI](images/J-GUI.png)
+![J-GUI](gui_unlocked.png)
 
 Designed to be run in an MCM Task Sequence, here is a rundown of what it does and how it works:
 
@@ -38,7 +38,6 @@ If Make contains 'VMware', Model is set as 'VMware VM'<br>
 If Make contains 'VirtualBox', Model is set as 'VirtualBox VM'<br>
 
 In all these instances, Chassis is also set to 'VM'
-
 
 ### Chassis Type 
 
@@ -73,6 +72,19 @@ These exist anyway:<br>
 -t, -testing: opens dialog to manually enter options for regex, timeout and buildtypes. (Can only be used outside of a task sequence).<br>
 -s, -silent: submits make, model and chassis with no GUI appearing<br>
 -h, -help, -?: throws up the help dialog<br>
+
+## Testing
+
+Putting in testing mode will open this:<br>
+![J-GUI](test_empty.png)
+
+Putting in details:<br>
+![J-GUI](test_filled.png)
+
+will fill out the main window like you had options in the task sequence set:<br>
+![J-GUI](gui_all_locked.png)
+
+
 
 
 
