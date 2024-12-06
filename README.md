@@ -6,7 +6,7 @@ Not happy with either TSGui or UI++, I made my own one.
 
 Introduing: J-GUI: Info Gather
 
-![J-GUI](gui_unlocked.png)
+![J-GUI](images/gui_unlocked.png)
 
 Designed to be run in an MCM Task Sequence, here is a rundown of what it does and how it works:
 
@@ -76,13 +76,13 @@ These exist anyway:<br>
 ## Testing
 
 Putting in testing mode will open this:<br>
-![J-GUI](test_empty.png)
+![J-GUI](images/test_empty.png)
 
 Putting in details:<br>
-![J-GUI](test_filled.png)
+![J-GUI](images/test_filled.png)
 
 will fill out the main window like you had options in the task sequence set:<br>
-![J-GUI](gui_all_locked.png)
+![J-GUI](images/gui_all_locked.png)
 
 
 
