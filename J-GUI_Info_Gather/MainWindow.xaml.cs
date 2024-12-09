@@ -156,10 +156,10 @@ namespace J_GUI_Info_Gather
                     {
                         Log.Information("Forced Failed");
 
-                        Environment.Exit(42069);
+                        Environment.Exit(4);
                     }
 
-                    Close();
+                    Hide();
                 }
             }
             else
@@ -179,10 +179,10 @@ namespace J_GUI_Info_Gather
                 }
                 if (Keyboard.IsKeyDown(Key.Escape))
                 {
-                    Environment.Exit(1);
+                    Environment.Exit(4);
                 }
 
-                Close();
+                Hide();
             }
         }
         public void SubmitButton_Click(object sender, RoutedEventArgs e)
