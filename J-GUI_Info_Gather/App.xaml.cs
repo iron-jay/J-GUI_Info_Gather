@@ -153,7 +153,7 @@ namespace J_GUI_Info_Gather
                         Log.Information("Opening test dialog");
                         Test_Dialog test_dialog = new Test_Dialog();
                         test_dialog.ShowDialog();
-                     
+
                         DoTheThing();
                     }
 
@@ -229,11 +229,6 @@ namespace J_GUI_Info_Gather
             }
         }
 
-        public bool IsValidHostname()
-        {
-            bool isValid = System.Text.RegularExpressions.Regex.IsMatch(hostname, regex);
-            return isValid;
-        }
 
         public void DefineVariables()
         {
@@ -282,10 +277,7 @@ namespace J_GUI_Info_Gather
             DefineWMIProperties();
 
             HandleRegex();
-            if (regexActive)
-            {
-                IsValidHostname();
-            }
+
         }
 
         public void DoTheThing()

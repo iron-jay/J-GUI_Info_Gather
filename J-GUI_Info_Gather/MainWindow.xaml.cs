@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -26,13 +27,13 @@ namespace J_GUI_Info_Gather
             {
                 if (((App)Application.Current).regexActive)
                 {
-                    if (((App)Application.Current).IsValidHostname())
+                    if (IsValidHostname())
                     {
                         StartTimer();
                     }
                     else
                     {
-                        timerDisplay.Text = "Asset # Invalid.\nTimer Suspended.";
+                        timerDisplay.Text = "Hostname Invalid.\nTimer Suspended.";
                         timerDisplay.Margin = new Thickness(105, 230, 0, 0);
                     }
                 }
@@ -51,7 +52,7 @@ namespace J_GUI_Info_Gather
             hostname.Text = (((App)Application.Current).hostname);
             if (((App)Application.Current).regexActive)
             {
-                if (((App)Application.Current).IsValidHostname())
+                if (IsValidHostname())
                 {
                     hostname.IsEnabled = false;
 
@@ -118,25 +119,34 @@ namespace J_GUI_Info_Gather
             }
         }
 
+
+
+        public bool IsValidHostname()
+        {
+            bool isValid = System.Text.RegularExpressions.Regex.IsMatch(hostname.Text, ((App)Application.Current).regex);
+            return isValid;
+        }
+
         public void FinishThings()
         {
-            if (((App)Application.Current).timeoutActive)
+            if (timer != null)
             {
                 timer.Stop();
             }
 
             if (((App)Application.Current).regexActive)
             {
-                if (!((App)Application.Current).IsValidHostname() && !((App)Application.Current).isVM)
+                if (!IsValidHostname() && !((App)Application.Current).isVM)
                 {
                     hostname.Foreground = System.Windows.Media.Brushes.Red;
+
                     MessageBox.Show("Hostname does not meet standards", "Invalid", MessageBoxButton.OK, MessageBoxImage.Error);
                     Log.Debug("Hostname does not meet standards");
                 }
                 else
                 {
                     (((App)Application.Current).submittedHostname) = hostname.Text.ToUpper();
-                    Log.Information("Hostname Validation: Hostname = {Hostname}, Valid = {IsValid}", ((App)Application.Current).hostname, ((App)Application.Current).IsValidHostname());
+                    Log.Information("Hostname Validation: Hostname = {Hostname}, Valid = {IsValid}", ((App)Application.Current).hostname, IsValidHostname());
 
                     if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftShift))
                     {
@@ -188,6 +198,6 @@ namespace J_GUI_Info_Gather
         public void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             FinishThings();
-        }   
+        }
     }
 }
