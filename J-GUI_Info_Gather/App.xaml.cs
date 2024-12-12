@@ -58,7 +58,7 @@ namespace J_GUI_Info_Gather
             string logPath;
             if (TS.IsTSEnv())
             {
-                logPath = Path.Combine(TS.GetTSVar("_SMSLogLocation"), logFilename);
+                logPath = Path.Combine(TS.GetTSVar("_SMSLogPath"), logFilename);
             }
             else
             {
