@@ -311,7 +311,7 @@ namespace J_GUI_Info_Gather
             make = WMIProperty("Win32_ComputerSystem", "Manufacturer").ToString();
             Log.Information("Initial WMI Computer System Properties: Make = {Make}, Model = {Model}", make, model);
 
-            if (make.Contains("Microsoft") | model.Contains("Virtual"))
+            if (make.Contains("Microsoft") && model.Contains("Virtual"))
             {
                 Log.Warning("Detected Hyper-V Virtual Machine");
                 model = "Hyper-V VM";
@@ -354,7 +354,13 @@ namespace J_GUI_Info_Gather
                 Log.Verbose("Processed Chassis Type: {ChassisType} -> {Enclosure}", chassisType, enclosure);
             }
 
-            if (enclosure.Contains("Desktop"))
+            if (isVM)
+            {
+                chassis = "VM";
+                enclosure = "Virtual Machine";
+                Log.Debug("Chassis categorized as Virtual Machine");
+            }
+            else if (enclosure.Contains("Desktop"))
             {
                 chassis = "Desktop";
                 Log.Debug("Chassis categorized as Desktop");
@@ -364,13 +370,7 @@ namespace J_GUI_Info_Gather
                 chassis = "Mobile";
                 Log.Debug("Chassis categorized as Mobile");
             }
-            else if (isVM)
-            {
-                chassis = "VM";
-                enclosure = "Virtual Machine";
 
-                Log.Debug("Chassis categorized as Virtual Machine");
-            }
 
         }
         //convert chassis type number into usable text
