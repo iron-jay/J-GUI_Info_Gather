@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -75,10 +76,18 @@ namespace J_GUI_Info_Gather
                     radioButton.Checked += RadioButton_Checked;
                     radioButtonContainer.Children.Add(radioButton);
 
+                    if (option == TS.GetTSVar("Buildtype"))
+                    {
+                        radioButton.IsChecked = true;
+                    }
+
                 }
-                if (radioButtonContainer.Children.Count > 0 && radioButtonContainer.Children[0] is RadioButton firstRadioButton)
+                if (!radioButtonContainer.Children.OfType<RadioButton>().Any(rb => rb.IsChecked == true))
                 {
-                    firstRadioButton.IsChecked = true;
+                    if (radioButtonContainer.Children[0] is RadioButton firstRadioButton)
+                    {
+                        firstRadioButton.IsChecked = true;
+                    }
                 }
             }
             else
